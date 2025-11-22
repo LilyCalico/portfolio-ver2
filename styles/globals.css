@@ -16,6 +16,19 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
+
+  /* Icon Colours */
+  --color-react: #0A7EA5;
+  --color-typescript: #3178C6;
+  --color-javascript: #F7DF1D;
+  --color-html: #E65127;
+  --color-css: #0C73B8;
+  --color-tailwind: #00BCFF;
+  --color-sass: #BF4080;
+  --color-aws: #EC7211;
+  --color-supabase: #34B27B;
+
+  /* Font */
   --font-basic: var(--font-roboto);
   --font-itim: var(--font-itim);
 }
