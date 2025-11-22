@@ -1,16 +1,17 @@
+import About from "../components/About";
+import Experience from "../components/Experience";
 import TechStack from "../components/TechStack";
 import Top from "../components/Top";
 
 export default function Home() {
   return (
-    <div className="mt-[9.6rem]">
+    <div className="mt-[9.6rem] flex flex-col items-center">
       <Top />
 
-      <main className="flex flex-col items-center gap-[8rem]">
+      <main className="flex flex-col items-start gap-[10rem] mb-[10rem]">
         <TechStack />
-        <div>
-          <p>hiii</p>
-        </div>
+        <About />
+        <Experience />
       </main>
     </div>
   );

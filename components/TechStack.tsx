@@ -11,6 +11,7 @@ import {
 } from "react-icons/si";
 
 import FigmaIcon from "../public/img/figma.svg";
+import SectionTitle from "./parts/SectionTitle";
 
 const techStack = [
   {
@@ -70,9 +71,7 @@ const techStack = [
 export default function TechStack() {
   return (
     <section id="tech-stack" className="mt-40">
-      <h2 className="mb-[3.2rem] text-[1.8rem] font-bold uppercase">
-        Tech Stack
-      </h2>
+      <SectionTitle title="Tech Stack" />
 
       <div className="flex max-w-[50rem] flex-wrap gap-8">
         {techStack.map((tech) => (
