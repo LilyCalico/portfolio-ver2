@@ -11,7 +11,7 @@ import {
 } from "react-icons/si";
 
 import FigmaIcon from "../public/img/figma.svg";
-import SectionTitle from "./parts/SectionTitle";
+import SectionTitle from "./typography/SectionTitle";
 
 const techStack = [
   {

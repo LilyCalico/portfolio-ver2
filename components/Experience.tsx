@@ -3,7 +3,7 @@ import { FaCheck } from "react-icons/fa";
 import { RiArrowDropDownLine } from "react-icons/ri";
 
 import { cn } from "../lib/cn";
-import SectionTitle from "./parts/SectionTitle";
+import SectionTitle from "./typography/SectionTitle";
 
 const experiences = [
   {

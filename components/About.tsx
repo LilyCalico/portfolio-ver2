@@ -1,4 +1,4 @@
-import SectionTitle from "./parts/SectionTitle";
+import SectionTitle from "./typography/SectionTitle";
 export default function About() {
   return (
     <section id="about">
