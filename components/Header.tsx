@@ -1,12 +1,11 @@
 import Link from "next/link";
-import { RiUserVoiceLine } from "react-icons/ri";
 
 import { cn } from "../lib/cn";
 
 export const links = [
   { href: "#experience", label: "Experience" },
   { href: "#projects", label: "Projects" },
-  { href: "#contact", label: "Contact" },
+  { href: "mailto:yuri.oda.dev@gmail.com", label: "Contact" },
 ];
 
 export default function Header() {
