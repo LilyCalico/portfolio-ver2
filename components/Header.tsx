@@ -43,7 +43,7 @@ export default function Header() {
               <span className="relative z-10">{link.label}</span>
             </Link>
           ))}
-          <RiUserVoiceLine className="cursor-pointer hover:text-primary" />
+          {/* <RiUserVoiceLine className="cursor-pointer hover:text-primary" /> */}
         </div>
       </div>
     </div>
