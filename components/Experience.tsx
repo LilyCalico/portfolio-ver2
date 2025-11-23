@@ -1,9 +1,18 @@
+import type { CSSProperties } from "react";
 import { useId, useState } from "react";
 import { FaCheck } from "react-icons/fa";
 import { RiArrowDropDownLine } from "react-icons/ri";
 
 import { cn } from "../lib/cn";
 import SectionTitle from "./typography/SectionTitle";
+
+const HIGHLIGHT_STYLE: CSSProperties = {
+  backgroundImage:
+    "linear-gradient(180deg, rgba(208,221,191,0) 60%, rgba(208,221,191,0.5) 60%)",
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "100% 1.5rem",
+  backgroundPosition: "0 100%",
+};
 
 const experiences = [
   {
@@ -38,20 +47,6 @@ const experiences = [
   },
 ];
 
-export default function Experience() {
-  return (
-    <section id="experience">
-      <SectionTitle title="Experience" />
-
-      <div className="flex flex-col gap-12">
-        {experiences.map((experience) => (
-          <ExperienceEntry key={experience.role} {...experience} />
-        ))}
-      </div>
-    </section>
-  );
-}
-
 type ExperienceEntryProps = (typeof experiences)[number];
 
 function ExperienceEntry({
@@ -65,7 +60,7 @@ function ExperienceEntry({
 
   return (
     <div className="flex gap-8">
-      <p className="w-48">{period}</p>
+      <p className="w-48 shrink-0">{period}</p>
       <div className="max-w-[55rem]">
         <button
           type="button"
@@ -95,7 +90,7 @@ function ExperienceEntry({
           <ul className="ml-[0.4rem] mt-[1.2rem] space-y-[0.8rem]">
             {bullets.map((bullet) => (
               <li key={bullet} className="flex items-start gap-[0.8rem]">
-                <FaCheck className="mt-[0.2rem] text-[1.2rem] text-primary" />
+                <FaCheck className="mt-[0.2rem] text-[1.2rem] text-primary shrink-0" />
                 <span>{bullet}</span>
               </li>
             ))}
@@ -103,5 +98,34 @@ function ExperienceEntry({
         </div>
       </div>
     </div>
+  );
+}
+
+export default function Experience() {
+  return (
+    <section id="experience">
+      <SectionTitle title="Experience" />
+
+      <div className="mb-[3rem]">
+        <p className="space-y-[0.4rem]">
+          I enjoy not just coding, but also thinking about whether{" "}
+          <strong className="inline pb-[0.1rem]" style={HIGHLIGHT_STYLE}>
+            an app truly provides value.
+          </strong>
+        </p>
+        <p>
+          Leveraging my experience in B2B sales, I am skilled at{" "}
+          <strong className="inline pb-[0.1rem]" style={HIGHLIGHT_STYLE}>
+            collaborating with a wide range of people.
+          </strong>
+        </p>
+      </div>
+
+      <div className="flex flex-col gap-12">
+        {experiences.map((experience) => (
+          <ExperienceEntry key={experience.role} {...experience} />
+        ))}
+      </div>
+    </section>
   );
 }

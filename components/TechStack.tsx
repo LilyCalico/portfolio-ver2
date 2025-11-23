@@ -10,7 +10,7 @@ import {
   SiTypescript,
 } from "react-icons/si";
 
-import FigmaIcon from "../public/img/figma.svg";
+import FigmaIcon from "../public/img/icon/figma.svg";
 import SectionTitle from "./typography/SectionTitle";
 
 const techStack = [

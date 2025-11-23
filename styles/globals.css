@@ -12,6 +12,11 @@
   --font-itim: "Itim", cursive;
 }
 
+::selection {
+  background-color: var(--primary);
+  color: var(--foreground);
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -27,6 +32,8 @@
   --color-sass: #BF4080;
   --color-aws: #EC7211;
   --color-supabase: #34B27B;
+  --color-swr: #000000;
+  
 
   /* Font */
   --font-basic: var(--font-roboto);

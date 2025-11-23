@@ -10,6 +10,9 @@ export default function Top() {
           <h1>
             A <span className="font-bold">Frontend Developer/UI Designer</span>
           </h1>
+          <div className="text-[1.2rem] space-y-[0.6rem] mt-[1.2rem]">
+            <p>I like to code to deliver value, not just features.</p>
+          </div>
         </div>
         <div className="mt-[8rem] flex gap-[1.6rem]">
           <Link
