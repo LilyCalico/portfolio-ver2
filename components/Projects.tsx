@@ -39,7 +39,7 @@ const PROJECT_LIST = [
 
 function ProjectCard({ project }: { project: (typeof PROJECT_LIST)[number] }) {
   return (
-    <div className="w-full max-w-[64rem] border border-black/5 rounded-[2rem] p-[2rem]">
+    <div className="w-full max-w-[64rem] border border-black/5 rounded-[2rem] p-[2rem] hover:border-black/20 transition-colors duration-300">
       <div className="h-[30rem] bg-gray-200 rounded-[2rem] overflow-hidden">
         <Image
           src={project.image}
@@ -49,7 +49,7 @@ function ProjectCard({ project }: { project: (typeof PROJECT_LIST)[number] }) {
           onClick={() => {
             window.open(project.url, "_blank");
           }}
-          className="cursor-pointer"
+          className="cursor-pointer hover:opacity-60 transition-opacity duration-300"
         />
       </div>
       <div className="my-[3rem]">
