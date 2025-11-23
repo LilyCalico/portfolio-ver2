@@ -46,6 +46,10 @@ function ProjectCard({ project }: { project: (typeof PROJECT_LIST)[number] }) {
           alt={project.name}
           width={600}
           height={300}
+          onClick={() => {
+            window.open(project.url, "_blank");
+          }}
+          className="cursor-pointer"
         />
       </div>
       <div className="my-[3rem]">
