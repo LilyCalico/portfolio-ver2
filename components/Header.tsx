@@ -3,7 +3,7 @@ import { RiUserVoiceLine } from "react-icons/ri";
 
 import { cn } from "../lib/cn";
 
-const links = [
+export const links = [
   { href: "#experience", label: "Experience" },
   { href: "#projects", label: "Projects" },
   { href: "#contact", label: "Contact" },
