@@ -33,14 +33,14 @@ export default function Top() {
     setVisibleCount(1);
     const interval = setInterval(() => {
       setVisibleCount((prev) => (prev >= PAW_MARKS.length ? 0 : prev + 1));
-    }, 1000);
+    }, 1500);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
     <section id="top" className="flex items-center justify-between gap-16">
-      <div>
+      <div className="hero-intro-left">
         <div className="mt-80 text-[3.2rem]">
           <h1>Hi, I'm Yuri👋</h1>
           <h1>
@@ -69,7 +69,7 @@ export default function Top() {
           </Link>
         </div>
       </div>
-      <div className="relative bg-red-100">
+      <div className="hero-intro-right relative">
         <Image
           src="/img/blob-illust.png"
           alt="Yuri and her cat illustration"

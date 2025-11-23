@@ -11,7 +11,7 @@ export const links = [
 
 export default function Header() {
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 px-[8rem] pt-[6rem] bg-white/80">
+    <div className="header-enter fixed top-0 left-0 right-0 z-50 px-[8rem] pt-[6rem] bg-white/80">
       <div className="flex justify-between items-center">
         <Link
           href="/"
