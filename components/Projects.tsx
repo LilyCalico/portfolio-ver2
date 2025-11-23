@@ -29,7 +29,7 @@ const PROJECT_LIST = [
   {
     name: "ToDo List",
     description:
-      "A simple to-do list app built with React and JavaScript. It allows you to add, edit, and delete tasks. It also allows you to mark tasks as completed.",
+      "A simple to-do list app built with React and JavaScript. It uses Firebase Realtime Database for persistent storage, lets you add, edit, and delete tasks, and supports drag-and-drop reordering with completion tracking.",
     url: "https://todo-app-one-dusky.vercel.app/",
     github: "https://github.com/LilyCalico/to-do-app",
     image: "/img/todo/todo.png",

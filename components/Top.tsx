@@ -39,7 +39,10 @@ export default function Top() {
   }, []);
 
   return (
-    <section id="top" className="flex items-center justify-between gap-16">
+    <section
+      id="top"
+      className="flex items-center justify-between gap-16 mb-[5rem]"
+    >
       <div className="hero-intro-left">
         <div className="mt-80 text-[3.2rem]">
           <h1>Hi, I'm Yuri👋</h1>
