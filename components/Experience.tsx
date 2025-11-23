@@ -17,7 +17,7 @@ const experiences = [
     ],
   },
   {
-    period: "2025 - present",
+    period: "2023 - 2025",
     role: "Frontend Developer / UI Designer",
     company: "First Loop Technologies, Inc. (Startup) ・ Full-time",
     bullets: [
