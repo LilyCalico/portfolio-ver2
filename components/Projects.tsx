@@ -40,18 +40,16 @@ const PROJECT_LIST = [
 function ProjectCard({ project }: { project: (typeof PROJECT_LIST)[number] }) {
   return (
     <div className="w-full max-w-[64rem] border border-black/5 rounded-[2rem] p-[2rem] hover:border-black/20 transition-colors duration-300">
-      <div className="h-[30rem] bg-gray-200 rounded-[2rem] overflow-hidden">
-        <Image
-          src={project.image}
-          alt={project.name}
-          width={600}
-          height={300}
-          onClick={() => {
-            window.open(project.url, "_blank");
-          }}
-          className="cursor-pointer hover:opacity-60 transition-opacity duration-300"
-        />
-      </div>
+      <Image
+        src={project.image}
+        alt={project.name}
+        width={600}
+        height={300}
+        onClick={() => {
+          window.open(project.url, "_blank");
+        }}
+        className="cursor-pointer hover:opacity-60 transition-opacity duration-300 rounded-[2rem] overflow-hidden"
+      />
       <div className="my-[3rem]">
         <h1 className="mb-[1.2rem] text-[2rem] font-bold">{project.name}</h1>
         <p>{project.description}</p>
