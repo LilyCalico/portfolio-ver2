@@ -1,16 +1,33 @@
 import { cn } from "features/lib/cn";
 import Image from "next/image";
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { FaGithub } from "react-icons/fa";
 import { RiShareForwardBoxLine } from "react-icons/ri";
 import { ProjectsTechIcons } from "./ProjectsTechIcons";
 import SectionTitle from "./typography/SectionTitle";
 
-const PROJECT_LIST = [
+type Project = {
+  name: string;
+  description: ReactNode;
+  url: string;
+  github: string;
+  image: string;
+  techStack: string[];
+};
+
+const PROJECT_LIST: Project[] = [
   {
     name: "Trip Drop",
-    description:
-      "A collaborative travel planner where friends co-create itineraries in real time. Each itinerary renders on Google Maps, allowing users to visually confirm locations as they edit. I built the entire stack myself: design, frontend, backend, database, and secure authentication and authorization.",
+    description: (
+      <p>
+        A collaborative travel planner where friends co-create itineraries in
+        real time. Each itinerary renders on Google Maps, allowing users to
+        visually confirm locations as they edit. I built the entire stack
+        myself: design, frontend, backend, database, and secure authentication
+        and authorization.
+      </p>
+    ),
     url: "https://trip-drop.vercel.app/",
     github: "https://github.com/LilyCalico/trip-drop",
     image: "/img/tripdrop/demo-pic.png",
@@ -28,8 +45,21 @@ const PROJECT_LIST = [
   },
   {
     name: "ToDo List",
-    description:
-      "A simple to-do list app built with React and JavaScript. It uses Firebase Realtime Database for persistent storage, lets you add, edit, and delete tasks, and supports drag-and-drop reordering with completion tracking.",
+    description: (
+      <p>
+        A simple to-do list app built with React and JavaScript. It uses
+        Firebase Realtime Database for persistent storage, lets you add, edit,
+        and delete tasks, and supports drag-and-drop reordering with completion
+        tracking. This project was built based on{" "}
+        <a
+          href="https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW"
+          className="underline hover:text-primary transition-colors duration-300"
+        >
+          Frontend Mentor
+        </a>
+        .
+      </p>
+    ),
     url: "https://todo-app-one-dusky.vercel.app/",
     github: "https://github.com/LilyCalico/to-do-app",
     image: "/img/todo/todo.png",
@@ -52,7 +82,7 @@ function ProjectCard({ project }: { project: (typeof PROJECT_LIST)[number] }) {
       />
       <div className="my-[3rem]">
         <h1 className="mb-[1.2rem] text-[2rem] font-bold">{project.name}</h1>
-        <p>{project.description}</p>
+        <div>{project.description}</div>
       </div>
 
       <div>
