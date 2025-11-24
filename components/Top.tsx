@@ -61,7 +61,9 @@ export default function Top() {
             A <span className="font-bold">Frontend Developer/UI Designer</span>
           </h1>
           <div className="text-[1.2rem] space-y-[0.6rem] mt-[1.2rem]">
-            <p>I like to code to deliver value, not just features.</p>
+            <p>
+              I am passionate about coding to deliver value, not just features.
+            </p>
           </div>
         </div>
         <div className="mt-32 flex gap-[1.6rem]">

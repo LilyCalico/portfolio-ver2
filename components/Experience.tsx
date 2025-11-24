@@ -110,15 +110,15 @@ export default function Experience() {
 
       <div className="mb-[3rem]">
         <p className="space-y-[0.4rem]">
-          I enjoy not just coding, but also thinking about whether{" "}
+          I’m passionate about building products that genuinely help{" "}
           <strong className="inline pb-[0.1rem]" style={HIGHLIGHT_STYLE}>
-            an app truly provides value.
+            users and teams.
           </strong>
         </p>
         <p>
-          Leveraging my experience in B2B sales, I am skilled at{" "}
+          My B2B sales experience has given me strong{" "}
           <strong className="inline pb-[0.1rem]" style={HIGHLIGHT_STYLE}>
-            collaborating with a wide range of people.
+            communication and cross-functional collaboration skills.
           </strong>
         </p>
       </div>
