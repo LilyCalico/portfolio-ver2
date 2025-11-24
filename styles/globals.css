@@ -48,7 +48,19 @@
 
 html {
   box-sizing: border-box;
-	font-size: 62.5%; /* 1rem = 10px */
+  font-size: 56.25%; /* md: 1rem = 9px */
+}
+
+@media (min-width: 1280px) {
+  html {
+    font-size: 68.75%; /* xl: 1rem = 11px */
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 50%; /* sm: 1rem = 8px */
+  }
 }
 
 body {
@@ -57,13 +69,6 @@ body {
   font-family: var(--font-basic);
   font-size: 1.4rem;
 }
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    }
-    } */
 
 @keyframes header-slide-down {
   0% {
