@@ -14,7 +14,7 @@
 
 ::selection {
   background-color: var(--primary);
-  color: var(--foreground);
+  color: #ffffff;
 }
 
 @theme inline {
