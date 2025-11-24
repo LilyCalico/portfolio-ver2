@@ -48,7 +48,7 @@ function ProjectCard({ project }: { project: (typeof PROJECT_LIST)[number] }) {
         onClick={() => {
           window.open(project.url, "_blank");
         }}
-        className="cursor-pointer hover:opacity-60 transition-opacity duration-300 rounded-[2rem] overflow-hidden"
+        className="cursor-pointer hover:opacity-60 transition-opacity duration-300 rounded-[2rem] overflow-hidden mx-auto"
       />
       <div className="my-[3rem]">
         <h1 className="mb-[1.2rem] text-[2rem] font-bold">{project.name}</h1>
