@@ -59,8 +59,10 @@ function ExperienceEntry({
   const detailsId = useId();
 
   return (
-    <div className="flex gap-8">
-      <p className="w-48 shrink-0">{period}</p>
+    <div className={cn("flex flex-col gap-[0.5rem]", "md:flex-row")}>
+      <p className={cn("ml-[2rem] md:ml-0", "w-48 shrink-0 text-black/60")}>
+        {period}
+      </p>
       <div className="max-w-[55rem]">
         <button
           type="button"
