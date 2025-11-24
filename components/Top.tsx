@@ -3,6 +3,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaGithub, FaLinkedin, FaPaw } from "react-icons/fa";
 
+import { cn } from "../lib/cn";
+
 const PAW_MARKS = [
   {
     position: "bottom-0 right-[15rem]",
@@ -41,10 +43,19 @@ export default function Top() {
   return (
     <section
       id="top"
-      className="flex items-center justify-between gap-16 mb-[5rem]"
+      className={cn(
+        "flex flex-col items-center",
+        "md:flex-row md:justify-between md:gap-16 md:mb-[5rem]",
+      )}
     >
-      <div className="hero-intro-left">
-        <div className="mt-80 text-[3.2rem]">
+      {/* 紹介文 */}
+      <div
+        className={cn(
+          "hero-intro-left order-2 md:order-1",
+          "mt-[5rem] md:mt-[20rem]",
+        )}
+      >
+        <div className="text-[2.4rem] md:text-[3.2rem]">
           <h1>Hi, I'm Yuri👋</h1>
           <h1>
             A <span className="font-bold">Frontend Developer/UI Designer</span>
@@ -72,13 +83,15 @@ export default function Top() {
           </Link>
         </div>
       </div>
-      <div className="hero-intro-right relative">
+
+      {/* 写真 */}
+      <div className="hero-intro-right relative order-1 md:order-2">
         <Image
           src="/img/blob-illust.png"
           alt="Yuri and her cat illustration"
           width={250}
           height={260}
-          className="mt-40"
+          className="md:mt-40"
         />
         {PAW_MARKS.map((paw, index) => {
           const isVisible = visibleCount !== 0 && index < visibleCount;
