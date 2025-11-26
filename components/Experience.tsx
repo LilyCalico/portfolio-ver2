@@ -16,16 +16,6 @@ const HIGHLIGHT_STYLE: CSSProperties = {
 
 const experiences = [
   {
-    period: "2022 - present",
-    role: "Frontend Developer / UI Designer",
-    company: "Freelance",
-    bullets: [
-      "Built UX-friendly interfaces and NFT features using JavaScript/TypeScript.",
-      "Designed interfaces with a frontend perspective for easier development.",
-      "Managed multiple projects under tight deadlines.",
-    ],
-  },
-  {
     period: "2023 - 2025",
     role: "Frontend Developer / UI Designer",
     company: "First Loop Technologies, Inc. (Startup) ・ Full-time",
@@ -33,6 +23,16 @@ const experiences = [
       "Developed DX app interfaces with Next.js and integrated with AWS/Python APIs.",
       "Led a small frontend team, managing progress and supporting members throughout the development process.",
       "Established and led a design team.",
+    ],
+  },
+  {
+    period: "2022 - present",
+    role: "Frontend Developer / UI Designer",
+    company: "Freelance",
+    bullets: [
+      "Built UX-friendly interfaces and NFT features using JavaScript/TypeScript.",
+      "Designed interfaces with a frontend perspective for easier development.",
+      "Managed multiple projects under tight deadlines.",
     ],
   },
   {
