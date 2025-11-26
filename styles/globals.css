@@ -5,6 +5,7 @@
   --background: #ffffff;
   --foreground: #11181C;
   --primary: #D0DDBF;
+  --primary-dark: #A6B199;
   --font-lato: "Lato", sans-serif;
   --font-figtree: "Figtree", sans-serif;
   --font-noto-sans-jp: "Noto Sans JP", sans-serif;
@@ -21,7 +22,8 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
-
+  --color-primary-dark: var(--primary-dark);
+  
   /* Icon Colours */
   --color-react: #0A7EA5;
   --color-typescript: #3178C6;
