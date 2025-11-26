@@ -28,7 +28,7 @@ const experiences = [
   {
     period: "2022 - present",
     role: "Frontend Developer / UI Designer",
-    company: "Freelance",
+    company: "Freelance(NFT Marketing Project, Software Design)",
     bullets: [
       "Built UX-friendly interfaces and NFT features using JavaScript/TypeScript.",
       "Designed interfaces with a frontend perspective for easier development.",
