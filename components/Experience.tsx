@@ -28,11 +28,12 @@ const experiences = [
   {
     period: "2022 - present",
     role: "Frontend Developer / UI Designer",
-    company: "Freelance(NFT Marketing Project, Software Design)",
+    company:
+      "Freelance(NFT Marketing Project, Software Design@R1 TECHNOLOGIES LLC)",
     bullets: [
-      "Built UX-friendly interfaces and NFT features using JavaScript/TypeScript.",
-      "Designed interfaces with a frontend perspective for easier development.",
-      "Managed multiple projects under tight deadlines.",
+      "React: Prefetched off-screen NFT ownership states to speed up the behavior of NFT ownership-verification websites.",
+      "Design: Built reusable shadcn/ui modules so engineers could assemble applications faster and with fewer UI decisions.",
+      "Soft Skills: Front-loaded specs, closed gaps early, and shipped overlapping design work plus two development tracks on one-week deadlines without delays.",
     ],
   },
   {
