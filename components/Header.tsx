@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useCallback, useState } from "react";
+import { type MouseEvent, useCallback, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { FaBriefcase, FaCode } from "react-icons/fa6";
 import { FiMail } from "react-icons/fi";
@@ -17,12 +17,44 @@ export default function Header() {
 
   const toggleMenu = useCallback(() => setIsMenuOpen((prev) => !prev), []);
   const closeMenu = useCallback(() => setIsMenuOpen(false), []);
+  const handleNavClick = useCallback(
+    (event: MouseEvent<HTMLAnchorElement>, href: string) => {
+      closeMenu();
+
+      if (typeof window === "undefined" || !href.startsWith("#")) {
+        return;
+      }
+
+      event.preventDefault();
+
+      const target = document.querySelector<HTMLElement>(href);
+      if (!target) {
+        return;
+      }
+
+      const headerElement = document.getElementById("header");
+      const headerHeight =
+        headerElement instanceof HTMLElement ? headerElement.offsetHeight : 0;
+
+      const targetPosition =
+        target.getBoundingClientRect().top + window.scrollY - headerHeight;
+
+      window.scrollTo({
+        top: Math.max(targetPosition, 0),
+        behavior: "smooth",
+      });
+
+      window.history.replaceState(null, "", href);
+    },
+    [closeMenu],
+  );
 
   const nameAnimation = "transition-colors duration-300 hover:text-primary";
 
   return (
     <>
       <div
+        id="header"
         className={cn(
           "header-enter", // アニメーション
           "fixed top-0 left-0 right-0 z-50 bg-white/80",
@@ -48,6 +80,7 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 className="group relative inline-flex items-center justify-center px-[0.4rem] py-[0.3rem]"
+                onClick={(event) => handleNavClick(event, link.href)}
               >
                 <span
                   aria-hidden="true"
@@ -121,7 +154,7 @@ export default function Header() {
                 className={cn(
                   "hover:text-primary transition-colors duration-300",
                 )}
-                onClick={closeMenu}
+                onClick={(event) => handleNavClick(event, href)}
               >
                 <span className="flex items-center gap-[1.6rem]">
                   <Icon className="text-[1.4rem]" aria-hidden="true" />
