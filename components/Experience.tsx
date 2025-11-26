@@ -32,7 +32,7 @@ const experiences = [
       "Freelance(NFT Marketing Project, Software Design@R1 TECHNOLOGIES LLC)",
     bullets: [
       "React: Prefetched off-screen NFT ownership states to speed up the behavior of NFT ownership-verification websites.",
-      "Design: Built reusable shadcn/ui modules so engineers could assemble applications faster and with fewer UI decisions.",
+      "Design(Figma): Built reusable shadcn/ui modules so engineers could assemble applications faster and with fewer UI decisions.",
       "Soft Skills: Front-loaded specs, closed gaps early, and shipped overlapping design work plus two development tracks on one-week deadlines without delays.",
     ],
   },
