@@ -21,7 +21,7 @@ const experiences = [
     company: "First Loop Technologies, Inc. (Startup) ・ Full-time",
     bullets: [
       "Dev: Built RFID inventory and admin dashboards with Next.js, integrating Cognito auth on the frontend while aligning fuzzy requirements directly with the PM.",
-      "Design: Onboarded 4 engineers with reviews, reusable components, and study sessions; sold execs on ROI and cut design turnaround time to under 25% while reducing alignment issues.",
+      "Design: Onboarded 4 engineers with study sessions and reviews; sold execs on ROI and cut design turnaround time to under 25% with Figma.",
       "Soft Skills: Led a ~6-person development team, managing progress and supporting members throughout the development process.",
     ],
   },
