@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { FaAws, FaReact, FaSass } from "react-icons/fa";
 import {
-  SiCss3,
+  SiCss,
   SiHtml5,
   SiJavascript,
   SiNextdotjs,
@@ -36,7 +36,7 @@ const techStack = [
   },
   {
     name: "CSS",
-    icon: <SiCss3 className="text-css" />,
+    icon: <SiCss className="text-css" />,
   },
   {
     name: "Tailwind",

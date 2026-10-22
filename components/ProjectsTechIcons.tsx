@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { FaAws, FaReact, FaSass } from "react-icons/fa";
 import {
-  SiCss3,
+  SiCss,
   SiHtml5,
   SiJavascript,
   SiNextdotjs,
@@ -45,7 +45,7 @@ export const ProjectsTechIcons = ({
     case "HTML":
       return <SiHtml5 className={cn("text-html", className)} />;
     case "CSS3":
-      return <SiCss3 className={cn("text-css", className)} />;
+      return <SiCss className={cn("text-css", className)} />;
     case "Figma":
       return (
         <Image
