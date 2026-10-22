@@ -16,7 +16,7 @@ const HIGHLIGHT_STYLE: CSSProperties = {
 
 const experiences = [
   {
-    period: "2023 - 2026",
+    period: "2023 - 2025",
     role: "Frontend Developer / UI Designer",
     company: "First Loop Technologies, Inc. (Startup) ・ Full-time",
     bullets: [
