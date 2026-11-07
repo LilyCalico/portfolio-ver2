@@ -10,7 +10,7 @@ const HIGHLIGHT_STYLE: CSSProperties = {
   backgroundImage:
     "linear-gradient(180deg, rgba(208,221,191,0) 60%, rgba(208,221,191,0.5) 60%)",
   backgroundRepeat: "no-repeat",
-  backgroundSize: "100% 1.5rem",
+  backgroundSize: "100% 1.1em",
   backgroundPosition: "0 100%",
 };
 
@@ -60,37 +60,45 @@ function ExperienceEntry({
   const detailsId = useId();
 
   return (
-    <div className={cn("flex flex-col gap-[0.5rem]", "md:flex-row")}>
-      <p className={cn("ml-[2rem] md:ml-0", "w-48 shrink-0 text-black/60")}>
+    <div className={cn("flex flex-col gap-2", "md:flex-row")}>
+      <p
+        className={cn(
+          "w-38 shrink-0 pt-[0.2em]",
+          "font-mono text-sm text-foreground/60",
+        )}
+      >
         {period}
       </p>
-      <div className="max-w-[62rem]">
+      <div className="max-w-170">
         <button
           type="button"
           onClick={() => setIsOpen((prev) => !prev)}
           aria-expanded={isOpen}
           aria-controls={detailsId}
-          className="flex cursor-pointer items-center gap-[0.4rem] text-left text-[1.8rem] font-bold"
+          className={cn(
+            "flex cursor-pointer items-center gap-2 text-left text-lg font-bold",
+            "md:text-xl",
+          )}
         >
           <RiArrowDropDownLine
             className={cn(
-              "text-[2rem] transition-transform duration-300",
+              "text-2xl transition-transform duration-300",
               isOpen ? "rotate-180" : "rotate-0",
             )}
           />
           <span>{role}</span>
         </button>
-        <p className="ml-[2.4rem] text-[1.2rem]">{company}</p>
+        <p className="ml-8 text-sm text-foreground/60">{company}</p>
         <div
           id={detailsId}
           className={cn(
             "overflow-hidden transition-all duration-300 ease-out",
             isOpen
-              ? "max-h-112 translate-y-0 opacity-100"
+              ? "max-h-[40em] translate-y-0 opacity-100"
               : "max-h-0 -translate-y-2 opacity-0",
           )}
         >
-          <ul className="ml-[0.4rem] mt-[1.2rem] space-y-[0.8rem]">
+          <ul className="ml-1 mt-3 space-y-2">
             {bullets.map((bullet) => {
               const [rawLabel, ...restParts] = bullet.split(":");
               const label = rawLabel.trim();
@@ -100,15 +108,15 @@ function ExperienceEntry({
                 ["Dev", "Design", "Soft Skills"].includes(label);
 
               return (
-                <li key={bullet} className="flex items-start gap-[0.8rem]">
-                  <FaCheck className="mt-[0.2rem] text-[1.2rem] text-primary shrink-0" />
+                <li key={bullet} className="flex items-start gap-2">
+                  <FaCheck className="mt-[0.4em] text-xs text-primary shrink-0" />
                   <span>
                     {shouldHighlight ? (
                       <>
-                        <span className="rounded border border-primary-dark/50 px-[0.4rem] py-[0.4rem] font-semibold text-[1.2rem] bg-primary/30">
+                        <span className="rounded border border-primary-dark/50 px-[0.45em] py-[0.15em] font-mono font-semibold text-xs bg-primary/30">
                           {label}
                         </span>
-                        {rest && <span className="ml-[0.6rem]">: {rest}</span>}
+                        {rest && <span className="ml-1"> {rest}</span>}
                       </>
                     ) : (
                       bullet
@@ -129,7 +137,7 @@ export default function Experience() {
     <section id="experience">
       <SectionTitle title="Experience" />
 
-      <div className="mb-[3rem]">
+      <div className="mb-12 text-lg">
         <p className="space-y-[0.4rem]">
           I’m passionate about building products that genuinely help{" "}
           <strong className="inline pb-[0.1rem]" style={HIGHLIGHT_STYLE}>
@@ -139,12 +147,14 @@ export default function Experience() {
         <p>
           My B2B sales experience has given me strong{" "}
           <strong className="inline pb-[0.1rem]" style={HIGHLIGHT_STYLE}>
-            communication and cross-functional collaboration skills.
+            communication and{" "}
+            <span className="whitespace-nowrap">cross-functional</span>{" "}
+            collaboration skills.
           </strong>
         </p>
       </div>
 
-      <div className="flex flex-col gap-12">
+      <div className="flex flex-col gap-8">
         {experiences.map((experience) => (
           <ExperienceEntry key={experience.role} {...experience} />
         ))}

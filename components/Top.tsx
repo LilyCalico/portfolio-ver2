@@ -7,23 +7,23 @@ import { cn } from "../lib/cn";
 
 const PAW_MARKS = [
   {
-    position: "bottom-0 right-[15rem]",
+    position: "bottom-0 right-[66%]",
     rotate: 50,
   },
   {
-    position: "bottom-[-1rem] right-[13rem]",
+    position: "bottom-[-4%] right-[57%]",
     rotate: 20,
   },
   {
-    position: "bottom-[2rem] right-[7rem]",
+    position: "bottom-[8.5%] right-[31%]",
     rotate: 40,
   },
   {
-    position: "bottom-[1rem] right-[5rem]",
+    position: "bottom-[4%] right-[22%]",
     rotate: 10,
   },
   {
-    position: "bottom-[6rem] right-0",
+    position: "bottom-[25%] right-0",
     rotate: 10,
   },
 ];
@@ -44,36 +44,44 @@ export default function Top() {
     <section
       id="top"
       className={cn(
-        "flex flex-col items-center",
-        "md:flex-row md:justify-between md:gap-16 md:mb-[5rem]",
+        "flex flex-col items-center gap-8 pt-16 pb-8",
+        "md:flex-row md:justify-between md:gap-12 md:pt-24 md:pb-12",
+        "lg:pt-32 lg:pb-16",
       )}
     >
       {/* 紹介文 */}
       <div
         className={cn(
-          "hero-intro-left order-2 md:order-1",
-          "mt-[5rem] md:mt-[20rem]",
+          "hero-intro-left order-2",
+          "md:order-1",
         )}
       >
-        <div className="text-[2.4rem] md:text-[3.2rem]">
-          <h1>Hi, I'm Yuri👋</h1>
-          <h1>
-            A <span className="font-bold">Frontend Developer/UI Designer</span>
+        <div>
+          <h2 className="text-xl">
+            Hi, I'm Yuri👋
+          </h2>
+          <h1
+            className="text-4xl mt-2"
+          >
+            A{" "}
+            <span className="font-semibold">
+              Frontend Developer/UI Designer
+            </span>
           </h1>
-          <div className="text-[1.2rem] space-y-[0.6rem] mt-[1.2rem]">
+          <div className="mt-6">
             <p>
               I am passionate about coding to deliver value, not just features.
             </p>
           </div>
         </div>
-        <div className="mt-32 flex gap-[1.6rem]">
+        <div className="mt-16 flex gap-4">
           <Link
             href="https://www.linkedin.com/in/yuri-oda/"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-[0.8rem] hover:opacity-50 transition-opacity duration-300"
           >
-            <FaLinkedin className="text-[2rem] text-[#0077B5]" />
+            <FaLinkedin className="text-xl text-[#0077B5]" />
           </Link>
           <Link
             href="https://github.com/LilyCalico"
@@ -81,28 +89,32 @@ export default function Top() {
             rel="noopener noreferrer"
             className="flex items-center gap-[0.8rem] hover:opacity-50 transition-opacity duration-300"
           >
-            <FaGithub className="text-[2rem]" />
+            <FaGithub className="text-xl" />
           </Link>
         </div>
       </div>
 
       {/* 写真 */}
-      <div className="hero-intro-right relative order-1 md:order-2">
+      <div
+        className={cn(
+          "hero-intro-right relative order-1 w-fit shrink-0",
+          "md:order-2",
+        )}
+      >
         <Image
           src="/img/blob-illust.png"
           alt="Yuri and her cat illustration"
           width={250}
           height={260}
-          className="md:mt-40"
+          className={cn("h-auto w-50", "md:w-65")}
         />
         {PAW_MARKS.map((paw, index) => {
           const isVisible = visibleCount !== 0 && index < visibleCount;
           return (
             <FaPaw
               key={`${paw.position}-${paw.rotate}`}
-              className={`absolute text-[1.2rem] text-paw transition-opacity duration-400 ease-out ${paw.position} ${
-                isVisible ? "opacity-100" : "opacity-0"
-              }`}
+              className={`absolute text-xs text-paw transition-opacity duration-400 ease-out ${paw.position} ${isVisible ? "opacity-100" : "opacity-0"
+                }`}
               style={{ transform: `rotate(${paw.rotate}deg)` }}
             />
           );

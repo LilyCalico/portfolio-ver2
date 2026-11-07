@@ -1,10 +1,95 @@
 @import "tailwindcss";
 
+/* ==========================================================================
+   Variables
+   ========================================================================== */
+
 :root {
-  --background: #ffffff;
-  --foreground: #11181C;
-  --primary: #D0DDBF;
-  --primary-dark: #A6B199;
+  /* Colours */
+  --background: #fffefc;
+  --foreground: #11181c;
+  --primary: #d0ddbf;
+  --primary-dark: #a6b199;
+
+  /* Layout */
+  --header-height: 4rem;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --header-height: 4.5rem;
+  }
+}
+
+/* ==========================================================================
+   Tailwind
+   ========================================================================== */
+@theme inline {
+  /* Colours */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+
+  /* Icon Colours */
+  --color-react: #0a7ea5;
+  --color-typescript: #3178c6;
+  --color-javascript: #f7df1d;
+  --color-html: #e65127;
+  --color-css: #0c73b8;
+  --color-tailwind: #00bcff;
+  --color-sass: #bf4080;
+  --color-aws: #ec7211;
+  --color-supabase: #34b27b;
+  --color-swr: #000000;
+  --color-paw: #ddb697;
+
+  /* Fonts */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+@theme {
+  /* Layout (max-w-page) */
+  --container-page: 960px;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+/*
+ * Font sizes
+ * The root font-size is left at the browser default (1rem = 16px) at every viewport width.
+ * Elements use Tailwind's default text-* classes; only sizes that change with the viewport
+ * switch at md: (768px+) / lg: (1024px+).
+ *
+ * Usage                                        <768px / 768px+ / 1024px+   Class
+ * Hero heading                                  36px  /  48px  /  60px     text-4xl md:text-5xl lg:text-6xl
+ * Role title, greeting                          18px  /  20px  /  20px     text-lg md:text-xl
+ * Project name                                  24px (all widths)          text-2xl
+ * Lead text, logo                               18px (all widths)          text-lg
+ * Body text, mobile menu                        16px (all widths)          text-base (body default)
+ * Nav, company, period, buttons, footer links   14px (all widths)          text-sm
+ * Section labels, tech names, tags, copyright   12px (all widths)          text-xs
+ *
+ * Line height defaults to 1.65 on body; elements with a text-* class use Tailwind's default line height.
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  line-height: 1.65;
 }
 
 ::selection {
@@ -12,63 +97,29 @@
   color: #ffffff;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-primary: var(--primary);
-  --color-primary-dark: var(--primary-dark);
-  
-  /* Icon Colours */
-  --color-react: #0A7EA5;
-  --color-typescript: #3178C6;
-  --color-javascript: #F7DF1D;
-  --color-html: #E65127;
-  --color-css: #0C73B8;
-  --color-tailwind: #00BCFF;
-  --color-sass: #BF4080;
-  --color-aws: #EC7211;
-  --color-supabase: #34B27B;
-  --color-swr: #000000;
-  --color-paw: #DDB697;
+/* ==========================================================================
+   Utilities
+   ========================================================================== */
 
-  /* Fonts */
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+/* Horizontal page padding shared by the header and page content */
+@utility page-gutter {
+  @apply px-10 md:px-15 lg:px-20;
 }
 
-*,
-*::before,
-*::after {
- box-sizing: border-box;
+/* Vertical spacing between top-level sections (and before the footer) */
+@utility section-gap {
+  @apply gap-24 md:gap-28 lg:gap-32;
 }
 
-html {
-  box-sizing: border-box;
-  font-size: 56.25%; /* md: 1rem = 9px */
-}
+/* ==========================================================================
+   Animations
+   ========================================================================== */
 
-@media (min-width: 1280px) {
-  html {
-    font-size: 68.75%; /* xl: 1rem = 11px */
-  }
-}
-
-@media (max-width: 768px) {
-  html {
-    font-size: 50%; /* sm: 1rem = 8px */
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-size: 1.4rem;
-}
-
+/* Header: slides down from the top */
 @keyframes header-slide-down {
   0% {
     opacity: 0;
-    transform: translateY(-3.2rem);
+    transform: translateY(-2rem);
   }
 
   100% {
@@ -77,62 +128,49 @@ body {
   }
 }
 
-@keyframes hero-left-enter {
-  0% {
-    opacity: 0;
-    transform: translateX(-4rem);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes hero-right-enter {
-  0% {
-    opacity: 0;
-    transform: translateX(4rem);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
 .header-enter {
   opacity: 0;
-  transform: translateY(-3.2rem);
+  transform: translateY(-2rem);
   animation: header-slide-down 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
   will-change: transform, opacity;
 }
 
+/* Hero: intro text slides in from the left */
+@keyframes hero-left-enter {
+  0% {
+    opacity: 0;
+    transform: translateX(-2.5rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .hero-intro-left {
   opacity: 0;
-  transform: translateX(-4rem);
+  transform: translateX(-2.5rem);
   animation: hero-left-enter 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
   will-change: transform, opacity;
 }
 
+/* Hero: illustration slides in from the right */
+@keyframes hero-right-enter {
+  0% {
+    opacity: 0;
+    transform: translateX(2.5rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .hero-intro-right {
   opacity: 0;
-  transform: translateX(4rem);
+  transform: translateX(2.5rem);
   animation: hero-right-enter 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
   will-change: transform, opacity;
-}
-
-.section-title-animate {
-  opacity: 0;
-  transform: translateY(-2.4rem);
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  transition-delay: 0s;
-  will-change: transform, opacity;
-}
-
-.section-title-animate.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 1s;
 }

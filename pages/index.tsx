@@ -11,10 +11,10 @@ export default function Home() {
       <Head>
         <title>Yuri / Portfolio</title>
       </Head>
-      <div className="mt-[9.6rem] flex flex-col items-center">
+      <div className="mx-auto flex max-w-page flex-col section-gap pt-(--header-height)">
         <Top />
 
-        <main className="flex flex-col items-start gap-[10rem]">
+        <main className="flex flex-col section-gap">
           <TechStack />
           {/* <About /> */}
           <Experience />

@@ -69,7 +69,7 @@ const PROJECT_LIST: Project[] = [
 
 function ProjectCard({ project }: { project: (typeof PROJECT_LIST)[number] }) {
   return (
-    <div className="w-full max-w-[64rem] border border-black/5 rounded-[2rem] p-[2rem] hover:border-black/20 transition-colors duration-300">
+    <div className="w-full max-w-xl border border-black/5 rounded-[1.25rem] p-6 hover:border-black/20 transition-colors duration-300">
       <Image
         src={project.image}
         alt={project.name}
@@ -78,48 +78,50 @@ function ProjectCard({ project }: { project: (typeof PROJECT_LIST)[number] }) {
         onClick={() => {
           window.open(project.url, "_blank");
         }}
-        className="cursor-pointer hover:opacity-60 transition-opacity duration-300 rounded-[2rem] overflow-hidden mx-auto"
+        className="cursor-pointer hover:opacity-60 transition-opacity duration-300 rounded-[1.25rem] overflow-hidden mx-auto"
       />
-      <div className="my-[3rem]">
-        <h1 className="mb-[1.2rem] text-[2rem] font-bold">{project.name}</h1>
+      <div className="my-8">
+        <h1 className="mb-3 text-2xl font-bold">
+          {project.name}
+        </h1>
         <div>{project.description}</div>
       </div>
 
       <div>
-        <ul className="flex gap-[1rem] flex-wrap">
+        <ul className="flex gap-2 flex-wrap">
           {project.techStack.map((tech) => {
             return (
               <li
                 key={tech}
                 className={cn(
-                  "flex items-center gap-[0.4rem] bg-gray-50 border border-transparent",
-                  "rounded-[1.6rem] px-[0.8rem] py-[0.4rem] cursor-pointer",
+                  "flex items-center gap-1.5 bg-gray-50 border border-transparent",
+                  "rounded-full px-2.5 py-1 cursor-pointer",
                   "hover:bg-gray-100 transition-colors duration-300 hover:border-black/20",
                 )}
               >
                 {ProjectsTechIcons({
                   name: tech,
-                  className: "text-[1.6rem] max-w-[1.6rem] max-h-[1.6rem]",
+                  className: "size-3.5 text-sm",
                 })}
-                <p className="text-[1rem] tracking-[0.03rem]">{tech}</p>
+                <p className="font-mono text-xs">{tech}</p>
               </li>
             );
           })}
         </ul>
       </div>
 
-      <div className="flex gap-[1.5rem] mt-[2rem] items-center justify-center">
+      <div className="flex gap-4 mt-6 items-center justify-center">
         <Link
           href={project.url}
           target="_blank"
           rel="noopener noreferrer"
           className={cn(
-            "flex items-center justify-center gap-[0.4rem] w-[9rem] py-[0.4rem] rounded-[2rem]",
+            "flex items-center justify-center gap-1.5 px-4 py-1.5 rounded-full text-sm",
             "border border-black/10 hover:bg-black/5 hover:border-black/20",
             "transition-colors duration-300",
           )}
         >
-          <RiShareForwardBoxLine className="text-[1.6rem]" />
+          <RiShareForwardBoxLine className="text-base" />
           <p>Live</p>
         </Link>
         <Link
@@ -127,12 +129,12 @@ function ProjectCard({ project }: { project: (typeof PROJECT_LIST)[number] }) {
           target="_blank"
           rel="noopener noreferrer"
           className={cn(
-            "flex items-center justify-center gap-[0.4rem] w-[9rem] py-[0.4rem] rounded-[2rem]",
+            "flex items-center justify-center gap-1.5 px-4 py-1.5 rounded-full text-sm",
             "border border-black/10 hover:bg-black/5 hover:border-black/20",
             "transition-colors duration-300",
           )}
         >
-          <FaGithub className="text-[1.6rem]" />
+          <FaGithub className="text-base" />
           <p>GitHub</p>
         </Link>
       </div>
@@ -145,7 +147,7 @@ export default function Projects() {
     <section id="projects">
       <SectionTitle title="Projects" />
 
-      <div className="flex flex-col gap-[3rem]">
+      <div className={cn("grid gap-6", "lg:grid-cols-2")}>
         {PROJECT_LIST.map((project) => (
           <ProjectCard key={project.name} project={project} />
         ))}

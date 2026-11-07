@@ -10,6 +10,7 @@ import {
   SiTypescript,
 } from "react-icons/si";
 
+import { cn } from "../lib/cn";
 import FigmaIcon from "../public/img/icon/figma.svg";
 import SectionTitle from "./typography/SectionTitle";
 
@@ -54,7 +55,7 @@ const techStack = [
         alt="Figma"
         width={24}
         height={24}
-        className="h-[2.4rem] w-[2.4rem]"
+        className="size-7"
       />
     ),
   },
@@ -70,19 +71,22 @@ const techStack = [
 
 export default function TechStack() {
   return (
-    <section id="tech-stack" className="mt-40">
+    <section id="tech-stack">
       <SectionTitle title="Tech Stack" />
 
-      <div className="flex max-w-[50rem] flex-wrap gap-8">
+      <div
+        className={cn(
+          "grid grid-cols-4 gap-x-2 gap-y-7",
+          "sm:grid-cols-6",
+          "lg:grid-cols-11",
+        )}
+      >
         {techStack.map((tech) => (
-          <div
-            key={tech.name}
-            className="flex w-[6rem] flex-col items-center gap-[0.8rem]"
-          >
-            <div className="flex h-[2.4rem] w-[2.4rem] items-center justify-center text-[2.4rem]">
+          <div key={tech.name} className="flex flex-col items-center gap-2">
+            <div className="flex size-7 items-center justify-center text-2xl">
               {tech.icon}
             </div>
-            <span className="text-[1.2rem]">{tech.name}</span>
+            <span className="font-mono text-xs">{tech.name}</span>
           </div>
         ))}
       </div>

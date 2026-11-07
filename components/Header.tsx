@@ -56,30 +56,32 @@ export default function Header() {
       <div
         id="header"
         className={cn(
-          "header-enter", // アニメーション
-          "fixed top-0 left-0 right-0 z-50 bg-white/80",
-          "px-[4rem] pt-[3rem] md:px-[8rem] md:pt-[6rem]",
+          "header-enter",
+          "fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md backdrop-saturate-150",
+          "page-gutter",
         )}
       >
-        <div className="flex items-center justify-between">
+        <div className="mx-auto flex h-(--header-height) max-w-page items-center justify-between">
           <Link
             href="/"
-            className={cn(
-              nameAnimation,
-              "text-[1.6rem] md:text-[2.4rem] font-bold tracking-[0.2rem]",
-            )}
+            className={cn(nameAnimation, "text-lg font-bold tracking-[0.04em]")}
             onClick={closeMenu}
           >
             Yuri ODA
           </Link>
 
           {/* md以上のメニュー */}
-          <div className="hidden items-center gap-[5.4rem] tracking-[0.03rem] md:flex">
+          <div
+            className={cn(
+              "hidden items-center gap-9 text-sm tracking-[0.03rem]",
+              "md:flex",
+            )}
+          >
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="group relative inline-flex items-center justify-center px-[0.4rem] py-[0.3rem]"
+                className="group relative inline-flex items-center justify-center px-1 py-0.5"
                 onClick={(event) => handleNavClick(event, link.href)}
               >
                 <span
@@ -87,7 +89,7 @@ export default function Header() {
                   className={cn(
                     "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-0 rounded-full opacity-0",
                     "transition-transform ease-out",
-                    "h-[2rem] w-[2rem]",
+                    "size-6",
                     "group-hover:scale-100 group-hover:opacity-100",
                     "bg-primary",
                   )}
@@ -99,7 +101,7 @@ export default function Header() {
           </div>
 
           {/* md未満のメニュー */}
-          <div className="block md:hidden">
+          <div className={cn("block", "md:hidden")}>
             <button
               type="button"
               aria-label="メニューを開閉"
@@ -107,7 +109,7 @@ export default function Header() {
               onClick={toggleMenu}
               className="cursor-pointer"
             >
-              <AiOutlineMenu className="text-[2rem]" />
+              <AiOutlineMenu className="text-xl" />
             </button>
           </div>
         </div>
@@ -121,16 +123,14 @@ export default function Header() {
         onClick={closeMenu}
         className={cn(
           "fixed inset-0 z-1000 bg-zinc-900/50 backdrop-blur-sm transition-opacity duration-300 ease-out",
-          isMenuOpen
-            ? "opacity-1000 md:hidden"
-            : "pointer-events-none opacity-0",
+          isMenuOpen ? "opacity-1000" : "pointer-events-none opacity-0",
           "md:hidden",
         )}
       />
       <nav
         className={cn(
-          "fixed top-0 right-0 z-1001 flex h-screen w-[28rem] max-w-[80vw] flex-col bg-white",
-          "px-[4.5rem] py-[8rem]",
+          "fixed top-0 right-0 z-1001 flex h-screen w-64 max-w-[80vw] flex-col bg-white",
+          "px-9 py-16",
           "transition-transform duration-300 ease-in-out",
           isMenuOpen ? "translate-x-0" : "translate-x-full",
           "md:hidden",
@@ -140,13 +140,13 @@ export default function Header() {
           href="/"
           className={cn(
             nameAnimation,
-            "font-bold text-[1.6rem] tracking-[0.2rem] cursor-pointer",
+            "font-bold text-lg tracking-[0.04em] cursor-pointer",
           )}
           onClick={closeMenu}
         >
           Yuri ODA
         </Link>
-        <ul className="mt-[6rem] flex flex-col gap-[4.5rem] text-[1.6rem]">
+        <ul className="mt-12 flex flex-col gap-9 text-base">
           {links.map(({ href, label, Icon }) => (
             <li key={href}>
               <Link
@@ -156,8 +156,8 @@ export default function Header() {
                 )}
                 onClick={(event) => handleNavClick(event, href)}
               >
-                <span className="flex items-center gap-[1.6rem]">
-                  <Icon className="text-[1.4rem]" aria-hidden="true" />
+                <span className="flex items-center gap-3">
+                  <Icon className="text-sm" aria-hidden="true" />
                   <span className="tracking-[0.05rem]">{label}</span>
                 </span>
               </Link>

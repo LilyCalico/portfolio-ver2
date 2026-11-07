@@ -8,7 +8,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <div className={cn(geistSans.variable, geistMono.variable, "font-sans")}>
       <Header />
-      <div className="px-[4rem] md:px-[8rem]">
+      <div className="page-gutter">
         <Component {...pageProps} />
       </div>
     </div>
