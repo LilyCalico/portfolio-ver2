@@ -12,6 +12,8 @@ import {
 import { cn } from "../lib/cn";
 import FigmaIcon from "../public/img/icon/figma.svg";
 import FirebaseIcon from "../public/img/icon/firebase.png";
+import NestJSIcon from "../public/img/icon/nestjs.svg";
+import NodeJSIcon from "../public/img/icon/nodejs.svg";
 import ShadcnIcon from "../public/img/icon/shadcnui.svg";
 import SWRIcon from "../public/img/icon/swr.svg";
 import ZustandIcon from "../public/img/icon/zustand.svg";
@@ -44,8 +46,29 @@ export const ProjectsTechIcons = ({
       return <SiJavascript className={cn("text-javascript", className)} />;
     case "HTML":
       return <SiHtml5 className={cn("text-html", className)} />;
+    case "CSS":
     case "CSS3":
       return <SiCss className={cn("text-css", className)} />;
+    case "Node.js":
+      return (
+        <Image
+          src={NodeJSIcon}
+          alt="Node.js"
+          width={IMAGE_ICON_SIZE}
+          height={IMAGE_ICON_SIZE}
+          className={className}
+        />
+      );
+    case "NestJS":
+      return (
+        <Image
+          src={NestJSIcon}
+          alt="NestJS"
+          width={IMAGE_ICON_SIZE}
+          height={IMAGE_ICON_SIZE}
+          className={className}
+        />
+      );
     case "Figma":
       return (
         <Image
