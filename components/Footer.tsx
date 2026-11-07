@@ -19,7 +19,7 @@ export default function Footer() {
             <span>LinkedIn</span>
           </Link>
           <Link
-            href="mailto:yuri.oda.dev@gmail.com"
+            href="mailto:yuri.oda.lily@gmail.com"
             className="flex items-center gap-2 rounded-full border border-black/10 px-4 py-2 text-sm transition-colors duration-200 hover:border-black/30 hover:bg-black/5"
           >
             <FiMail className="text-base" />

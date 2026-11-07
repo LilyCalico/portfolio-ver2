@@ -65,7 +65,7 @@ export default function Top() {
           >
             A{" "}
             <span className="font-semibold">
-              Frontend Developer/UI Designer
+              Fullstack Developer
             </span>
           </h1>
           <div className="mt-6">
