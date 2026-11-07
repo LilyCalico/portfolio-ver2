@@ -1,9 +1,10 @@
 import { cn } from "features/lib/cn";
 import Image from "next/image";
 import Link from "next/link";
-import type { ReactNode } from "react";
+import { type ReactNode, useState } from "react";
 import { FaGithub } from "react-icons/fa";
-import { RiShareForwardBoxLine } from "react-icons/ri";
+import { RiPlayCircleLine, RiShareForwardBoxLine } from "react-icons/ri";
+import { TeaserModal } from "./TeaserModal";
 import TechChip from "./TechChip";
 import SectionTitle from "./typography/SectionTitle";
 
@@ -12,37 +13,64 @@ type Project = {
   description: ReactNode;
   url: string;
   github: string;
+  teaser?: string;
   image: string;
   techStack: string[];
 };
 
 const PROJECT_LIST: Project[] = [
   {
-    name: "Trip Drop",
+    name: "Kotoba",
     description: (
       <p>
-        A collaborative travel planner where friends co-create itineraries in
-        real time. Each itinerary renders on Google Maps, allowing users to
-        visually confirm locations as they edit. I built the entire stack
-        myself: design, frontend, backend, database, and secure authentication
-        and authorization.
+        A guessing game built around Swedish words that have no direct translation. An AI keeps a
+        secret word, and players start from a one-line teaser, then narrow it down with yes-or-no
+        questions and up to three hints. It plays in English or Japanese. I built the entire stack
+        myself: design, a Next.js frontend, a NestJS API, a Postgres database, and Gemini-powered
+        judging that stays consistent with every earlier answer.
       </p>
     ),
-    url: "https://trip-drop.vercel.app/",
-    github: "https://github.com/LilyCalico/trip-drop",
-    image: "/img/tripdrop/demo-pic.png",
+    url: "https://kotoba-nine-zeta.vercel.app/",
+    github: "https://github.com/LilyCalico/kotoba",
+    teaser: "/img/kotoba/kotoba-preview.mp4",
+    image: "/img/kotoba/kotoba.png",
     techStack: [
-      "React",
       "Next.js",
+      "React",
+      "NestJS",
       "TypeScript",
-      "Zustand",
-      "SWR",
       "Supabase",
-      "Figma",
       "Tailwind",
       "Shadcn/UI",
+      "Figma",
     ],
   },
+  // {
+  //   name: "Trip Drop",
+  //   description: (
+  //     <p>
+  //       A collaborative travel planner where friends co-create itineraries in
+  //       real time. Each itinerary renders on Google Maps, allowing users to
+  //       visually confirm locations as they edit. I built the entire stack
+  //       myself: design, frontend, backend, database, and secure authentication
+  //       and authorization.
+  //     </p>
+  //   ),
+  //   url: "https://trip-drop.vercel.app/",
+  //   github: "https://github.com/LilyCalico/trip-drop",
+  //   image: "/img/tripdrop/demo-pic.png",
+  //   techStack: [
+  //     "React",
+  //     "Next.js",
+  //     "TypeScript",
+  //     "Zustand",
+  //     "SWR",
+  //     "Supabase",
+  //     "Figma",
+  //     "Tailwind",
+  //     "Shadcn/UI",
+  //   ],
+  // },
   {
     name: "ToDo List",
     description: (
@@ -67,7 +95,15 @@ const PROJECT_LIST: Project[] = [
   },
 ];
 
+const actionClassName = cn(
+  "flex items-center justify-center gap-1.5 px-4 py-1.5 rounded-full text-sm",
+  "border border-black/10 hover:bg-black/5 hover:border-black/20",
+  "transition-colors duration-300 cursor-pointer",
+);
+
 function ProjectCard({ project }: { project: (typeof PROJECT_LIST)[number] }) {
+  const [isTeaserOpen, setIsTeaserOpen] = useState(false);
+
   return (
     <div className="w-full max-w-xl border border-black/5 rounded-[1.25rem] p-6 hover:border-black/20 transition-colors duration-300">
       <Image
@@ -100,29 +136,40 @@ function ProjectCard({ project }: { project: (typeof PROJECT_LIST)[number] }) {
           href={project.url}
           target="_blank"
           rel="noopener noreferrer"
-          className={cn(
-            "flex items-center justify-center gap-1.5 px-4 py-1.5 rounded-full text-sm",
-            "border border-black/10 hover:bg-black/5 hover:border-black/20",
-            "transition-colors duration-300",
-          )}
+          className={actionClassName}
         >
           <RiShareForwardBoxLine className="text-base" />
           <p>Live</p>
         </Link>
+        {project.teaser && (
+          <button
+            type="button"
+            onClick={() => setIsTeaserOpen(true)}
+            className={actionClassName}
+          >
+            <RiPlayCircleLine className="text-base" />
+            <p>Teaser</p>
+          </button>
+        )}
         <Link
           href={project.github}
           target="_blank"
           rel="noopener noreferrer"
-          className={cn(
-            "flex items-center justify-center gap-1.5 px-4 py-1.5 rounded-full text-sm",
-            "border border-black/10 hover:bg-black/5 hover:border-black/20",
-            "transition-colors duration-300",
-          )}
+          className={actionClassName}
         >
           <FaGithub className="text-base" />
           <p>GitHub</p>
         </Link>
       </div>
+
+      {project.teaser && (
+        <TeaserModal
+          title={project.name}
+          src={project.teaser}
+          open={isTeaserOpen}
+          onClose={() => setIsTeaserOpen(false)}
+        />
+      )}
     </div>
   );
 }
