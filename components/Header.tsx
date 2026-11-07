@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { type MouseEvent, useCallback, useState } from "react";
+import { type MouseEvent, useCallback, useEffect, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { FaBriefcase, FaCode } from "react-icons/fa6";
 import { FiMail } from "react-icons/fi";
@@ -14,6 +14,15 @@ export const links = [
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 8);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const toggleMenu = useCallback(() => setIsMenuOpen((prev) => !prev), []);
   const closeMenu = useCallback(() => setIsMenuOpen(false), []);
@@ -58,7 +67,8 @@ export default function Header() {
         className={cn(
           "animate-slide-down motion-reduce:animate-none",
           "fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md backdrop-saturate-150",
-          "page-gutter",
+          "border-b transition-colors duration-200 page-gutter",
+          isScrolled ? "border-black/8" : "border-transparent",
         )}
       >
         <div className="mx-auto flex h-(--header-height) max-w-page items-center justify-between">
