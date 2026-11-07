@@ -147,7 +147,7 @@ export default function Projects() {
     <section id="projects">
       <SectionTitle title="Projects" />
 
-      <div className={cn("grid gap-6", "lg:grid-cols-2")}>
+      <div className={cn("grid justify-items-center gap-6", "lg:grid-cols-2")}>
         {PROJECT_LIST.map((project) => (
           <ProjectCard key={project.name} project={project} />
         ))}
