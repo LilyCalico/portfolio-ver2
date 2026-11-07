@@ -52,7 +52,7 @@ export default function Top() {
       {/* 紹介文 */}
       <div
         className={cn(
-          "hero-intro-left order-2",
+          "order-2 animate-slide-in-left motion-reduce:animate-none",
           "md:order-1",
         )}
       >
@@ -97,7 +97,7 @@ export default function Top() {
       {/* 写真 */}
       <div
         className={cn(
-          "hero-intro-right relative order-1 w-fit shrink-0",
+          "relative order-1 w-fit shrink-0 animate-slide-in-right motion-reduce:animate-none",
           "md:order-2",
         )}
       >

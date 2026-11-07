@@ -115,62 +115,39 @@ body {
    Animations
    ========================================================================== */
 
-/* Header: slides down from the top */
-@keyframes header-slide-down {
-  0% {
-    opacity: 0;
-    transform: translateY(-2rem);
+/*
+ * Entrance animations (animate-* utilities)
+ * Only the `from` keyframe is defined: the animation ends on the element's own styles.
+ * `both` applies the `from` state during the delay, so no initial opacity/transform is needed.
+ */
+@theme {
+  /* Header: slides down from the top */
+  --animate-slide-down: slide-down 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+
+  /* Hero: intro text slides in from the left, illustration from the right */
+  --animate-slide-in-left: slide-in-left 0.8s cubic-bezier(0.16, 1, 0.3, 1)
+    0.25s both;
+  --animate-slide-in-right: slide-in-right 0.8s cubic-bezier(0.16, 1, 0.3, 1)
+    0.25s both;
+
+  @keyframes slide-down {
+    from {
+      opacity: 0;
+      transform: translateY(-2rem);
+    }
   }
 
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.header-enter {
-  opacity: 0;
-  transform: translateY(-2rem);
-  animation: header-slide-down 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
-  will-change: transform, opacity;
-}
-
-/* Hero: intro text slides in from the left */
-@keyframes hero-left-enter {
-  0% {
-    opacity: 0;
-    transform: translateX(-2.5rem);
+  @keyframes slide-in-left {
+    from {
+      opacity: 0;
+      transform: translateX(-2.5rem);
+    }
   }
 
-  100% {
-    opacity: 1;
-    transform: translateX(0);
+  @keyframes slide-in-right {
+    from {
+      opacity: 0;
+      transform: translateX(2.5rem);
+    }
   }
-}
-
-.hero-intro-left {
-  opacity: 0;
-  transform: translateX(-2.5rem);
-  animation: hero-left-enter 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
-  will-change: transform, opacity;
-}
-
-/* Hero: illustration slides in from the right */
-@keyframes hero-right-enter {
-  0% {
-    opacity: 0;
-    transform: translateX(2.5rem);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.hero-intro-right {
-  opacity: 0;
-  transform: translateX(2.5rem);
-  animation: hero-right-enter 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
-  will-change: transform, opacity;
 }

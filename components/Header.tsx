@@ -56,7 +56,7 @@ export default function Header() {
       <div
         id="header"
         className={cn(
-          "header-enter",
+          "animate-slide-down motion-reduce:animate-none",
           "fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md backdrop-saturate-150",
           "page-gutter",
         )}
