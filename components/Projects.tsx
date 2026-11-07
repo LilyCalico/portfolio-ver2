@@ -4,7 +4,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { FaGithub } from "react-icons/fa";
 import { RiShareForwardBoxLine } from "react-icons/ri";
-import { ProjectsTechIcons } from "./ProjectsTechIcons";
+import TechChip from "./TechChip";
 import SectionTitle from "./typography/SectionTitle";
 
 type Project = {
@@ -89,24 +89,9 @@ function ProjectCard({ project }: { project: (typeof PROJECT_LIST)[number] }) {
 
       <div>
         <ul className="flex gap-2 flex-wrap">
-          {project.techStack.map((tech) => {
-            return (
-              <li
-                key={tech}
-                className={cn(
-                  "flex items-center gap-1.5 bg-gray-50 border border-transparent",
-                  "rounded-full px-2.5 py-1 cursor-pointer",
-                  "hover:bg-gray-100 transition-colors duration-300 hover:border-black/20",
-                )}
-              >
-                {ProjectsTechIcons({
-                  name: tech,
-                  className: "size-3.5 text-sm",
-                })}
-                <p className="font-mono text-xs">{tech}</p>
-              </li>
-            );
-          })}
+          {project.techStack.map((tech) => (
+            <TechChip key={tech} name={tech} />
+          ))}
         </ul>
       </div>
 
