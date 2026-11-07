@@ -27,7 +27,7 @@ const experiences = [
   },
   {
     period: "2022 - present",
-    role: "Frontend Developer / UI Designer",
+    role: "Fullstack Developer / UI Designer",
     company:
       "Freelance(NFT Marketing Project, Software Design@R1 TECHNOLOGIES LLC)",
     bullets: [
