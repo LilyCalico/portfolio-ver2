@@ -20,14 +20,13 @@ type Project = {
 
 const PROJECT_LIST: Project[] = [
   {
-    name: "Kotoba",
+    name: "Kotoba AI",
     description: (
       <p>
-        A guessing game built around Swedish words that have no direct translation. An AI keeps a
-        secret word, and players start from a one-line teaser, then narrow it down with yes-or-no
-        questions and up to three hints. It plays in English or Japanese. I built the entire stack
-        myself: design, a Next.js frontend, a NestJS API, a Postgres database, and Gemini-powered
-        judging that stays consistent with every earlier answer.
+        A guessing game built around Swedish words with no direct translation.
+        An AI keeps a secret word, and players narrow it down with yes-or-no
+        questions and hints. I built the entire stack
+        myself, from design, frontend, backend to the Gemini-powered judging.
       </p>
     ),
     url: "https://kotoba-nine-zeta.vercel.app/",
@@ -105,7 +104,7 @@ function ProjectCard({ project }: { project: (typeof PROJECT_LIST)[number] }) {
   const [isTeaserOpen, setIsTeaserOpen] = useState(false);
 
   return (
-    <div className="w-full max-w-xl border border-black/5 rounded-[1.25rem] p-6 hover:border-black/20 transition-colors duration-300">
+    <div className="flex flex-col w-full max-w-xl border border-black/5 rounded-[1.25rem] p-6 hover:border-black/20 transition-colors duration-300">
       <Image
         src={project.image}
         alt={project.name}
@@ -123,7 +122,8 @@ function ProjectCard({ project }: { project: (typeof PROJECT_LIST)[number] }) {
         <div>{project.description}</div>
       </div>
 
-      <div>
+      {/* Push the tech stack and actions to the bottom so they line up across cards in a row. */}
+      <div className="mt-auto">
         <ul className="flex gap-2 flex-wrap">
           {project.techStack.map((tech) => (
             <TechChip key={tech} name={tech} />
